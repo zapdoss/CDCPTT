@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="Ideal Diet"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_pi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_p3"
+                android:layout_alignLeft="@+id/textView20"
+                android:layout_alignStart="@+id/textView20"
+                android:text="Proteins"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_p1"
+                android:layout_alignLeft="@+id/textView22"
+                android:layout_alignStart="@+id/textView22"
+                android:text="Vitamins"
+                android:textColor="@android:color/holo_red_dark"
+                android:textColorLink="@android:color/holo_red_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_p2"
+                android:layout_alignBottom="@+id/tv_p2"
+                android:layout_toLeftOf="@+id/tv_p2"
+                android:layout_toStartOf="@+id/tv_p2"
+                android:text="Carbohydrates"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_p4"
+                android:layout_alignLeft="@+id/textView21"
+                android:layout_alignStart="@+id/textView21"
+                android:text="Fats"
+                android:textColor="@android:color/holo_orange_light"
+                android:textColorLink="@android:color/holo_orange_light"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/b_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="48dp"
+                android:layout_marginLeft="149dp"
+                android:layout_marginStart="149dp"
+                android:onClick="next"
+                android:text="Next" />
+
+            <TextView
+                android:id="@+id/tv_p1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/tv_p3"
+                android:layout_alignRight="@+id/tv_p3"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:layout_above="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/tv_p5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView23"
+                android:layout_alignEnd="@+id/tv_p1"
+                android:layout_alignLeft="@+id/tv_p1"
+                android:layout_alignRight="@+id/tv_p1"
+                android:layout_alignStart="@+id/tv_p1"
+
+                android:text="TextView"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_p2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_p1"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/tv_p1"
+                android:layout_marginTop="150dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_p3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/b_next"
+                android:layout_alignRight="@+id/b_next"
+                android:layout_below="@+id/tv_p2"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_p4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/tv_p2"
+                android:layout_alignRight="@+id/tv_p2"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:layout_below="@+id/tv_p3" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

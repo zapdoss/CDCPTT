@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/pic"
+        android:id="@+id/imageView"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false" />
+
+    <TextView android:id="@+id/tv_person_name"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Sample Data"
+        android:textSize="15sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_person_user"
+        android:paddingBottom="5dp"
+        android:textAlignment="center" />
+
+</LinearLayout>
