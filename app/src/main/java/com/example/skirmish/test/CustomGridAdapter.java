@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class CustomGridAdapter extends BaseAdapter{
     Context context;
     int [] imageId;
     private static LayoutInflater inflater=null;
+    RadioButton slctd=null;
 
     public CustomGridAdapter(Context mainActivity, String[] prgmNameList, int[] prgmImages) {
         // TODO Auto-generated constructor stub
@@ -53,16 +55,33 @@ public class CustomGridAdapter extends BaseAdapter{
     {
         TextView tv;
         ImageView img;
+        RadioButton sel;
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-        Holder holder=new Holder();
+        final Holder holder=new Holder();
         View rowView;
 
         rowView = inflater.inflate(R.layout.single_row_item_2, null);
         holder.tv=(TextView) rowView.findViewById(R.id.tv_adapter2);
         holder.img=(ImageView) rowView.findViewById(R.id.iv_adapter2);
+        holder.sel=(RadioButton) rowView.findViewById(R.id.rb_adapter2);
+
+        /*holder.sel.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(selected != null)
+                {
+                    selected.setChecked(false);
+                }
+
+                holder.sel.setChecked(true);
+                selected = holder.sel;
+            }
+        });*/
 
         holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);

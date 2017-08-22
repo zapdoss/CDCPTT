@@ -1,90 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="271dp"
-        android:layout_height="234dp"
-        android:layout_gravity="center"
-        android:layout_marginRight="5dp"
-        android:padding="20dp" />
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <RelativeLayout
-        android:layout_width="524dp"
-        android:layout_height="374dp">
-
-        <Button
-            android:id="@+id/b_sub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/b_add"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="87dp"
-            android:layout_marginRight="87dp"
-            android:onClick="b_sub"
-            android:text="-"
-            android:layout_alignTop="@+id/b_add" />
-
-        <Button
-            android:id="@+id/b_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center_vertical|center_horizontal|center"
-            android:layout_marginBottom="129dp"
-            android:layout_marginLeft="76dp"
-            android:layout_marginStart="76dp"
-            android:layout_toEndOf="@+id/text"
-            android:layout_toRightOf="@+id/text"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="+" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6">
 
         <TextView
-            android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/b_add"
+            android:textSize="24sp"
+            android:text="Some Random Text"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dp"
-            android:text="TextView"
-            android:textSize="18sp" />
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/b_sub"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="87dp"
-            android:text="TextView"
-            android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="0.6">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+
+            <Button
+                android:id="@+id/b_subf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/textView16"
+                android:layout_toLeftOf="@+id/textView16"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:onClick="b_sub"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/b_addf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textView16"
+                android:layout_toRightOf="@+id/textView16"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:onClick="b_add"
+                android:text="+" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView16"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:text="Frequency"
+                android:textSize="20sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/b_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toStartOf="@+id/textView14"
+                android:layout_toLeftOf="@+id/textView14"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:onClick="b_sub"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/b_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textView14"
+                android:layout_toRightOf="@+id/textView14"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:onClick="b_add"
+                android:text="+" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="TextView"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView14"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:text="Quantity"
+                android:textSize="20sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8">
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView14"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/textView14"
             android:layout_marginBottom="20dp"
-            android:layout_marginEnd="58dp"
-            android:layout_marginRight="58dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
             android:text="CANCEL" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/button2"
-            android:layout_toLeftOf="@+id/b_sub"
-            android:layout_toStartOf="@+id/b_sub"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             android:text="Okay" />
+
     </RelativeLayout>
     <![CDATA[
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,101 +8,168 @@
 
     <include layout="@layout/toolbar"/>
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.55"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="3dp"
+        android:text=" सबसे आसान परिवर्तन करें"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="?attr/colorAccent"
+        android:textSize="30sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.15"
+        android:layout_weight="0.125"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:background="@drawable/border"
+            android:layout_weight="0.55"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
+            android:paddingBottom="20dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingTop="5dp">
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pi_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:background="@drawable/border"
-            android:orientation="vertical">
-
-            <GridView
-                android:id="@+id/gridview2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:numColumns="4"
-                android:paddingBottom="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="15dp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.3"
-        android:background="@drawable/border"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorAccent"
-            android:text="Select an item"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="17sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.7"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/rotoron1" />
+                app:srcCompat="@drawable/stator1"
+                android:layout_weight="0.55"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"/>
 
-            <TextView
-                android:id="@+id/textView11"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pi_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:text="Item information will appear here" />
+                android:layout_weight="0.55" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.45">
+
+            <TextView
+                android:id="@+id/tv_c10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="    Category 5"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_c9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c10"
+                android:layout_alignLeft="@id/tv_c10"
+                android:layout_marginBottom="3sp"
+                android:text="    Category 4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_c8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c9"
+                android:layout_alignLeft="@id/tv_c9"
+                android:layout_marginBottom="3sp"
+                android:text="    Category 3"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_c7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c8"
+                android:layout_marginBottom="3sp"
+                android:layout_alignLeft="@id/tv_c9"
+                android:text="    Category 2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_c6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c7"
+                android:layout_marginBottom="3sp"
+                android:layout_alignLeft="@id/tv_c9"
+                android:text="    Category 1"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/b_next1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.7"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50sp"
                 android:onClick="next"
                 android:text="Next" />
-        </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_5"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_c10"
+                android:layout_marginBottom="3sp"
+                android:layout_toLeftOf="@id/tv_c10"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/iv_4"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toLeftOf="@id/tv_c10"
+                android:layout_alignBottom="@id/tv_c9"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_red_light" />
+
+            <ImageView
+                android:id="@+id/iv_3"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toLeftOf="@id/tv_c10"
+                android:layout_alignBottom="@id/tv_c8"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_blue_dark" />
+
+            <ImageView
+                android:id="@+id/iv_2"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_toLeftOf="@id/tv_c10"
+                android:layout_alignBottom="@id/tv_c7"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_green_dark" />
+
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_c6"
+                android:layout_toLeftOf="@id/tv_c10"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_orange_light" />
+
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

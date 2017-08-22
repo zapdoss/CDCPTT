@@ -3,6 +3,7 @@ package com.example.skirmish.test;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,15 +13,24 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Food_change extends AppCompatActivity {
 
     Health_nav_db hn = new Health_nav_db(this);
     Patient_db pt = new Patient_db(this);
+    Food_db food=new Food_db(this);
     private String usr;
     private String patient;
     GridView g1;
@@ -38,6 +48,7 @@ public class Food_change extends AppCompatActivity {
     String[] nut;
     int[] nut_im;
     ArrayList<Integer> values=new ArrayList<>();
+    RadioButton rb = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +69,42 @@ public class Food_change extends AppCompatActivity {
         titlebar.setText("HN: "+a);
         o.setText("Patient ID: "+patient);
         this.selected=Integer.parseInt(getIntent().getStringExtra("category"));
+
+        final int[] data1= food.getArray(Integer.parseInt(this.patient));
+        final String[] data2={"carbo","fat","prot","vitamin",};
+
+        int i;
+
+        List<PieEntry> list = new ArrayList<>();
+
+        for(i=0;i<data1.length;i++) {
+            list.add(new PieEntry(data1[i], data2[i]));
+        }
+
+        PieChart pieChart = (PieChart)findViewById(R.id.pi_2);
+        pieChart.setHoleRadius(0);
+        pieChart.setTransparentCircleAlpha(0);
+
+        List<Integer> colors = new ArrayList<>();
+        colors.add(Color.argb(150,0,0,255));
+        colors.add(Color.argb(150,0,255,0));
+        colors.add(Color.argb(150,255,0,0));
+        colors.add(Color.argb(150,255,255,0));
+
+        PieDataSet swt = new PieDataSet(list,"data");
+        swt.setColors(colors);
+
+        PieData dat = new PieData(swt);
+        pieChart.setData(dat);
+        //pieChart.setCenterText("BMI:"+df.format(bmi));
+        pieChart.highlightValue(selected, 0, false);
+        pieChart.isUsePercentValuesEnabled();
+        pieChart.getLegend().setEnabled(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setClickable(false);
+        pieChart.setTouchEnabled(false);
+        pieChart.invalidate();
+
 
         g1=(GridView)findViewById(R.id.gridview3);
         setAdap(Integer.toString(this.selected));
@@ -80,7 +127,7 @@ public class Food_change extends AppCompatActivity {
         }
 
         Cursor c = foods.getData(Integer.parseInt(patient),selected);
-        int i;
+        //int i;
         for(i=0;i<nut.length;i++){
             values.add(Integer.parseInt(c.getString(i+1)));
         }
@@ -96,10 +143,27 @@ public class Food_change extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(FoodDetails.this,""+position,Toast.LENGTH_SHORT).show();
                 index=position;
+                LinearLayout item_view = (LinearLayout) view;
+                final RadioButton itemcheck = (RadioButton) item_view
+                        .findViewById(R.id.rb_adapter2);
+
+//                if (itemcheck.isChecked()) {
+//                    itemcheck.setChecked(false);
+//                } else {
+                if(rb != null)
+                {
+                    rb.setChecked(false);
+                }
+                itemcheck.setChecked(true);
+                //}
+                rb=itemcheck;
+                //itemcheck.setChecked(true);
                 if (selected==0){
                     tv2.setText(carbo[position]);
                     iv.setImageResource(carbo_im[position]);
                     tv1.setText("Info about "+carbo[position]);
+                    //carbo[position]="yy";
+                    //setAdap(Integer.toString(selected));
                 }
                 else if (selected==1){
                     tv2.setText(fats[position]);
@@ -153,12 +217,14 @@ public class Food_change extends AppCompatActivity {
 
                 // set the custom dialog components - text, image and button
                 final TextView text = (TextView) dialog.findViewById(R.id.textView14);
+                final TextView textf = (TextView) dialog.findViewById(R.id.textView16);
+                textf.setText(Integer.toString(values.get(index)));
                 text.setText(Integer.toString(values.get(index)));
-                ImageView image = (ImageView) dialog.findViewById(R.id.image);
-                image.setImageResource(nut_im[index]);
 
                 Button add = (Button) dialog.findViewById(R.id.b_add);
                 Button sub = (Button) dialog.findViewById(R.id.b_sub);
+                Button addf = (Button) dialog.findViewById(R.id.b_addf);
+                Button subf = (Button) dialog.findViewById(R.id.b_subf);
                 Button cancel = (Button) dialog.findViewById(R.id.button2);
                 Button okay = (Button) dialog.findViewById(R.id.button3);
 
@@ -174,6 +240,20 @@ public class Food_change extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         text.setText(Integer.toString(Integer.parseInt(text.getText().toString())-1));
+                    }
+                });
+
+                subf.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textf.setText(Integer.toString(Integer.parseInt(textf.getText().toString())-1));
+                    }
+                });
+
+                addf.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textf.setText(Integer.toString(Integer.parseInt(textf.getText().toString())+1));
                     }
                 });
 
