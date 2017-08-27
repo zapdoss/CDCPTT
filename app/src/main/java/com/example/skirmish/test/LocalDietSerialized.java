@@ -14,11 +14,11 @@ public class LocalDietSerialized implements Serializable {
     private String[] Category3Names={"Mutton Sambar","Chicken Sambar","Kebab"};
     private String[] Category4Names={"Khichdi","Chutney","Sambar","Drumstick Sambar","Rasam","Dal Sambar"};
     private String[] Category5Names={"Tea","Milk(Sugarless)","Coffee","Lemon Juice","Milk(Normal","Biscuits","Rusk"};
-    private int[] Category1Im={};
-    private int[] Category2Im={};
-    private int[] Category3Im={};
-    private int[] Category4Im={};
-    private int[] Category5Im={};
+    private int[] Category1Im={R.drawable.Rice,R.drawable.WheatChapati,R.drawable.upma};
+    private int[] Category2Im={R.drawable.Mosambi,R.drawable.Grapes,R.drawable.RawVegetableSalad,R.drawable.VegetablePlaya,R.drawable.LeafyVegetables,R.drawable.Drumsticks,R.drawable.Sprouts,R.drawable.Hagalakayi,R.drawable.KheeraKadi,R.drawable.RaggiMudde,R.drawable.Moongdal};
+    private int[] Category3Im={R.drawable.MuttonSambar,R.drawable.ChickenSambar,R.drawable.Kebab};
+    private int[] Category4Im={R.drawable.Khichdi,R.drawable.GreenChutney,R.drawable.Sambar,R.drawable.DrumStickSambar,R.drawable.Rasam,R.drawable.DalSambar};
+    private int[] Category5Im={R.drawable.TeaSugarless,R.drawable.MilkSugarless,R.drawable.CoffeeSugarless,R.drawable.LemonJuice,R.drawable.MilkNormal,R.drawable.Biscuit,R.drawable.Rusk};
 
     private int[] Category1;
     private int[] Category2;
