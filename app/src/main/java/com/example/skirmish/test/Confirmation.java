@@ -23,6 +23,7 @@ public class Confirmation extends AppCompatActivity {
 
     Health_nav_db hn = new Health_nav_db(this);
     Patient_db pt = new Patient_db(this);
+    LocalDietSerialized localDiet = new LocalDietSerialized();
     private String usr;
     private String patient;
     GridView g1;
@@ -40,6 +41,11 @@ public class Confirmation extends AppCompatActivity {
     String[] nut;
     int[] nut_im;
     ArrayList<Integer> values = new ArrayList<>();
+    ArrayList<Integer> values1 = new ArrayList<>();
+    ArrayList<Integer> change_im = new ArrayList<>();
+    ArrayList<Integer> values2 = new ArrayList<>();
+    ArrayList<Integer> values3 = new ArrayList<>();
+    ArrayList<Integer> values4 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,20 +66,22 @@ public class Confirmation extends AppCompatActivity {
         titlebar.setText("HN: " + a);
         o.setText("Patient ID: " + patient);
         this.selected = Integer.parseInt(getIntent().getStringExtra("category"));
-        this.values = getIntent().getIntegerArrayListExtra("values");
+        //this.values = getIntent().getIntegerArrayListExtra("values");
+        this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
 
         int[] carboq=new int[carbo.length];
         int[] fatsq=new int[fats.length];
         int[] protq=new int[prot.length];
         int[] vitq=new int[vit.length];
 
-        String[] nutrients={"Carbohydrates","Fats","Proteins","Vitamins"};
-        TextView tv=(TextView)findViewById(R.id.textView16);
-        tv.setText("Review for "+nutrients[this.selected]);
+        String[] nutrients={"Category 1","Category 2","Category 3","Category 4","Category 5"};
+        //TextView tv=(TextView)findViewById(R.id.textView16);
+        //tv.setText("Review");
 
+        //Retrieving details from the database
         Cursor c;
         int i;
-        c=foods.getData(Integer.parseInt(this.patient),0);
+        /*c=foods.getData(Integer.parseInt(this.patient),0);
         for(i=0;i<carbo.length;i++){
             carboq[i]=(Integer.parseInt(c.getString(i+1)));
         }
@@ -88,11 +96,14 @@ public class Confirmation extends AppCompatActivity {
         c=foods.getData(Integer.parseInt(this.patient),3);
         for(i=0;i<vit.length;i++){
             vitq[i]=(Integer.parseInt(c.getString(i+1)));
-        }
+        }*/
 
-        int sum[]={0,0,0,0};
-        final String[] data2={"carbo","fat","prot","vitamin",};
-        for(i=0;i<carboq.length;i++){
+        //Retrieving local details
+        int[] sum=localDiet.getTotalArray();
+
+        //Generating pie chart from local details
+        final String[] data2={"Category 1","Category 2","Category 3","Category 4","Category 5"};
+        /*for(i=0;i<carboq.length;i++){
             sum[0]=sum[0]+carboq[i];
         }
         for(i=0;i<fatsq.length;i++){
@@ -103,14 +114,14 @@ public class Confirmation extends AppCompatActivity {
         }
         for(i=0;i<vitq.length;i++){
             sum[3]=sum[3]+vitq[i];
-        }
+        }*/
 
-        int temp=0;
+        /*int temp=0;
         for(i=0;i<values.size();i++){
             temp=temp+values.get(i);
         }
 
-        sum[this.selected]=temp;
+        sum[this.selected]=temp;*/
 
         List<PieEntry> list = new ArrayList<>();
 
@@ -123,19 +134,61 @@ public class Confirmation extends AppCompatActivity {
         pieChart.setTransparentCircleAlpha(0);
 
         List<Integer> colors = new ArrayList<>();
-        colors.add(Color.BLUE);
-        colors.add(Color.GREEN);
-        colors.add(Color.RED);
-        colors.add(Color.YELLOW);
+        colors.add(Color.argb(150,0,0,255));
+        colors.add(Color.argb(150,0,255,0));
+        colors.add(Color.argb(150,255,0,0));
+        colors.add(Color.argb(150,255,255,0));
+        colors.add(Color.argb(150,0,0,0));
 
         PieDataSet swt = new PieDataSet(list,"data");
         swt.setColors(colors);
 
         PieData dat = new PieData(swt);
         pieChart.setData(dat);
+        pieChart.isUsePercentValuesEnabled();
+        pieChart.getLegend().setEnabled(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setClickable(false);
+        pieChart.setTouchEnabled(false);
         pieChart.invalidate();
 
-        if (selected==1) {
+        //Find changes by comparing
+
+        for(i=0;i<fatsq.length;i++){
+            if(fatsq[i]!=localDiet.getCategory2()[i]){
+                values.add(localDiet.getCategory2()[i]);
+                values1.add(1);
+                change_im.add(fats_im[i]);
+            }
+        }
+
+        for(i=0;i<carboq.length;i++){
+            if(carboq[i]!=localDiet.getCategory1()[i]){
+                values.add(localDiet.getCategory1()[i]);
+                values1.add(1);
+                change_im.add(carbo_im[i]);
+            }
+        }
+
+        for(i=0;i<protq.length;i++){
+            if(protq[i]!=localDiet.getCategory3()[i]){
+                values.add(localDiet.getCategory3()[i]);
+                values1.add(1);
+                change_im.add(prot_im[i]);
+            }
+        }
+
+        for(i=0;i<vitq.length;i++){
+            if(vitq[i]!=localDiet.getCategory4()[i]){
+                values.add(localDiet.getCategory4()[i]);
+                values1.add(1);
+                change_im.add(vit_im[i]);
+            }
+        }
+
+        //
+
+        /*if (selected==1) {
             for (i = 0; i < fats.length; i++) {
                 fats[i] = fats[i] + ": " + fatsq[i]+"-> "+values.get(i);
             }
@@ -154,7 +207,7 @@ public class Confirmation extends AppCompatActivity {
             for (i = 0; i < vit.length; i++) {
                 vit[i] = vit[i] + ": " + vitq[i]+"-> "+values.get(i);
             }
-        }
+        }*/
 
         g1=(GridView)findViewById(R.id.grid3);
         setAdap(Integer.toString(this.selected));
@@ -163,19 +216,33 @@ public class Confirmation extends AppCompatActivity {
 
     void setAdap(String s){
         //int c= Integer.parseInt(s)
-        if(s.equals("1")) g1.setAdapter(new CustomGridAdapter(this,fats,fats_im));
-        else if(s.equals("2")) g1.setAdapter(new CustomGridAdapter(this,prot,prot_im));
-        else if(s.equals("3")) g1.setAdapter(new CustomGridAdapter(this,vit,vit_im));
-        else if(s.equals("0")) g1.setAdapter(new CustomGridAdapter(this,carbo,carbo_im));
+        g1.setAdapter(new ConfirmationGridAdapter(this,values,values1,change_im));
+        /*if(s.equals("1")) g1.setAdapter(new ConfirmationGridAdapter(this,values,values1,fats_im));
+        else if(s.equals("2")) g1.setAdapter(new ConfirmationGridAdapter(this,values,values1,prot_im));
+        else if(s.equals("3")) g1.setAdapter(new ConfirmationGridAdapter(this,values,values1,vit_im));
+        else if(s.equals("0")) g1.setAdapter(new ConfirmationGridAdapter(this,values,values1,carbo_im));
+        */
     }
 
     public void confirm2(View v){
         if(v.getId()==R.id.confirm2){
-            foods.update(Integer.parseInt(this.patient),this.selected,values);
+            //foods.update(Integer.parseInt(this.patient),this.selected,values);
             Intent intent = new Intent(getApplicationContext(), DietCalendar.class);
             intent.putExtra("usr",usr);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+        }
+    }
+
+    public void newchange(View v){
+        if(v.getId()==R.id.newchange){
+            //foods.update(Integer.parseInt(this.patient),this.selected,values);
+            Intent i = new Intent(getApplicationContext(), FoodDetails.class);
+            i.putExtra("localdiet",this.localDiet);
+            i.putExtra("usr",this.usr);
+            i.putExtra("patient",this.patient);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
         }
     }
 }

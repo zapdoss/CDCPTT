@@ -29,6 +29,7 @@ public class FoodDetails extends AppCompatActivity {
     Health_nav_db hn = new Health_nav_db(this);
     Patient_db pt = new Patient_db(this);
     Food_db food=new Food_db(this);
+    LocalDietSerialized localDiet = new LocalDietSerialized();
     private String usr;
     private String patient;
     GridView g1;
@@ -58,6 +59,7 @@ public class FoodDetails extends AppCompatActivity {
         TextView titlebar = (TextView) findViewById(R.id.tool_hn);
         this.usr = getIntent().getStringExtra("usr");
         this.patient = getIntent().getStringExtra("patient");
+        this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
         //TextView t = (TextView)findViewById(R.id.textView4);
         final String a = hn.getName(usr);
         titlebar.setText("HN: "+a);
@@ -66,8 +68,9 @@ public class FoodDetails extends AppCompatActivity {
         //g1=(GridView)findViewById(R.id.gridview2);
        // g1.setAdapter(new CustomGridAdapter(this,fats,fats_im));
 
-        final int[] data1= food.getArray(Integer.parseInt(this.patient));
-        final String[] data2={"carbo","fat","prot","vitamin"};
+        //final int[] data1= food.getArray(Integer.parseInt(this.patient));
+        final int[] data1=localDiet.getTotalArray();
+        final String[] data2={"Category 1","Category 2","Category 3","Category 4","Category 5"};
 
         int i;
 
@@ -86,6 +89,7 @@ public class FoodDetails extends AppCompatActivity {
         colors.add(Color.argb(150,0,255,0));
         colors.add(Color.argb(150,255,0,0));
         colors.add(Color.argb(150,255,255,0));
+        colors.add(Color.argb(150,0,0,0));
 
         PieDataSet swt = new PieDataSet(list,"data");
         swt.setColors(colors);
@@ -167,6 +171,7 @@ public class FoodDetails extends AppCompatActivity {
                 i.putExtra("category",Integer.toString(this.selected));
                 i.putExtra("usr",this.usr);
                 i.putExtra("patient",this.patient);
+                i.putExtra("localdiet",this.localDiet);
                 startActivity(i);
             }
         }

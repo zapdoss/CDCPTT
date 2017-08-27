@@ -28,6 +28,7 @@ public class DynamicPi extends AppCompatActivity {
     String usr;
     String patient;
     Singleton_helper m_Inst = Singleton_helper.getInstance();
+    LocalDietSerialized localDiet = new LocalDietSerialized();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,25 @@ public class DynamicPi extends AppCompatActivity {
         //Toast t = Toast.makeText(DynamicPi.this,patient,Toast.LENGTH_SHORT);
         //t.show();
 
-        int[] arr = pat.getArray(Integer.parseInt(this.patient));
-        int total=0;
-        int  par[]={5,1,4,2,6};
+
+        //Code to access database and put in local diet.
+        int c1[] = {1,1};
+        int c2[] = {1,1};
+        int c3[] = {1,1};
+        int c4[] = {1,1};
+        int c5[] = {1,1};
+        localDiet.setCategory1(c1);
+        localDiet.setCategory2(c2);
+        localDiet.setCategory3(c3);
+        localDiet.setCategory4(c4);
+        localDiet.setCategory5(c5);
+        int[] arr = localDiet.getPercentagesInInt();
+        //
+
+
+        //int[] arr = pat.getArray(Integer.parseInt(this.patient));
+        /*int total=0;
+        int  par[]={1,1,1,6,1};
         for(int i=0;i<5;i++){
             total+=par[i];
         }
@@ -61,6 +78,12 @@ public class DynamicPi extends AppCompatActivity {
         int  p2=(par[1]*100)/total;
         int  p3=(par[2]*100)/total;
         int  p4=(par[3]*100)/total;
+        int p5=100-p1-p2-p3-p4;*/
+
+        int p1=arr[0];
+        int p2=arr[1];
+        int p3=arr[2];
+        int p4=arr[3];
         int p5=100-p1-p2-p3-p4;
 
 
@@ -393,16 +416,18 @@ public class DynamicPi extends AppCompatActivity {
 
     public void next(View v){
         if (v.getId()==R.id.b_next){
-            final TextView tv2 = (TextView) findViewById(R.id.tv_p1);
+            final TextView tv1 = (TextView) findViewById(R.id.tv_p1);
             // tv2.setId(id1);
-            final TextView tv3 = (TextView) findViewById(R.id.tv_p2);
+            final TextView tv2 = (TextView) findViewById(R.id.tv_p2);
             //  tv3.setId(id2);
-            final TextView tv4 = (TextView) findViewById(R.id.tv_p3);
+            final TextView tv3 = (TextView) findViewById(R.id.tv_p3);
             //tv4.setId(id3);
-            final TextView tv5 = (TextView) findViewById(R.id.tv_p4);
-           int[] a={Integer.parseInt(tv3.getText().toString()),Integer.parseInt(tv5.getText().toString()),Integer.parseInt(tv4.getText().toString()),Integer.parseInt(tv2.getText().toString()) };
-            this.pat.update(Integer.parseInt(this.patient),a);
-            Intent i = new Intent(this, PresentDiet.class);
+            final TextView tv4 = (TextView) findViewById(R.id.tv_p4);
+            final TextView tv5 = (TextView) findViewById(R.id.tv_p5);
+           int[] a={Integer.parseInt(tv1.getText().toString()),Integer.parseInt(tv2.getText().toString()),Integer.parseInt(tv3.getText().toString()),Integer.parseInt(tv4.getText().toString(),Integer.parseInt(tv5.getText().toString())) };
+            this.localDiet.setIdealDiet(a);
+            Intent i = new Intent(this, FoodDetails.class);
+            i.putExtra("localdiet",this.localDiet);
             i.putExtra("usr",this.usr);
             i.putExtra("patient",this.patient);
             startActivity(i);

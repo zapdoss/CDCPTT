@@ -31,6 +31,7 @@ public class Food_change extends AppCompatActivity {
     Health_nav_db hn = new Health_nav_db(this);
     Patient_db pt = new Patient_db(this);
     Food_db food=new Food_db(this);
+    LocalDietSerialized localDiet = new LocalDietSerialized();
     private String usr;
     private String patient;
     GridView g1;
@@ -44,7 +45,7 @@ public class Food_change extends AppCompatActivity {
     int[] vit_im = {R.drawable.cheeze,R.drawable.nuts};
     int selected;
     int index=-1;
-    Food_db foods = new Food_db(this);
+    //Food_db foods = new Food_db(this);
     String[] nut;
     int[] nut_im;
     ArrayList<Integer> values=new ArrayList<>();
@@ -64,14 +65,15 @@ public class Food_change extends AppCompatActivity {
         TextView titlebar = (TextView) findViewById(R.id.tool_hn);
         this.usr = getIntent().getStringExtra("usr");
         this.patient = getIntent().getStringExtra("patient");
+        this.localDiet = (LocalDietSerialized) getIntent().getSerializableExtra("localdiet");
         //TextView t = (TextView)findViewById(R.id.textView4);
         final String a = hn.getName(usr);
         titlebar.setText("HN: "+a);
         o.setText("Patient ID: "+patient);
         this.selected=Integer.parseInt(getIntent().getStringExtra("category"));
 
-        final int[] data1= food.getArray(Integer.parseInt(this.patient));
-        final String[] data2={"carbo","fat","prot","vitamin",};
+        final int[] data1= localDiet.getTotalArray();
+        final String[] data2={"Category 1","Category 2","Category 3","Category 4","Category 5"};
 
         int i;
 
@@ -90,6 +92,7 @@ public class Food_change extends AppCompatActivity {
         colors.add(Color.argb(150,0,255,0));
         colors.add(Color.argb(150,255,0,0));
         colors.add(Color.argb(150,255,255,0));
+        colors.add(Color.argb(150,0,0,0));
 
         PieDataSet swt = new PieDataSet(list,"data");
         swt.setColors(colors);
@@ -108,28 +111,40 @@ public class Food_change extends AppCompatActivity {
 
         g1=(GridView)findViewById(R.id.gridview3);
         setAdap(Integer.toString(this.selected));
+        int qua[];
 
         if (selected==0){
             nut=carbo;
             nut_im=carbo_im;
+            qua=localDiet.getCategory1();
         }
         else if (selected==1){
             nut=fats;
             nut_im=fats_im;
+            qua=localDiet.getCategory2();
         }
         else if (selected==2){
             nut=prot;
             nut_im=prot_im;
+            qua=localDiet.getCategory3();
         }
         else if (selected==3){
             nut=vit;
             nut_im=vit_im;
+            qua=localDiet.getCategory4();
+        }
+        else {
+            nut=carbo;
+            nut_im=carbo_im;
+            qua=localDiet.getCategory5();
         }
 
-        Cursor c = foods.getData(Integer.parseInt(patient),selected);
+        //Cursor c = foods.getData(Integer.parseInt(patient),selected);
         //int i;
-        for(i=0;i<nut.length;i++){
-            values.add(Integer.parseInt(c.getString(i+1)));
+
+        for(i=0;i<qua.length;i++){
+            //values.add(Integer.parseInt(c.getString(i+1)));
+            values.add(qua[i]);
         }
 
 
@@ -197,6 +212,8 @@ public class Food_change extends AppCompatActivity {
             for(j=0;j<values.size();j++){
                 a[j]=values.get(j);
             }
+            localDiet.setCategory(a,selected);
+            i.putExtra("localdiet",this.localDiet);
             Bundle b = new Bundle();
             b.putIntegerArrayList("values",values);
             i.putExtras(b);
@@ -208,7 +225,7 @@ public class Food_change extends AppCompatActivity {
         if(v.getId()==R.id.b_confirm){
             if(index<0) Toast.makeText(this,"Select",Toast.LENGTH_SHORT).show();
             else{
-            Cursor c = foods.getData(Integer.parseInt(patient),selected);
+            //Cursor c = foods.getData(Integer.parseInt(patient),selected);
             Toast.makeText(this,Integer.toString(values.get(index)),Toast.LENGTH_SHORT).show();
 
                 final Dialog dialog = new Dialog(this);
