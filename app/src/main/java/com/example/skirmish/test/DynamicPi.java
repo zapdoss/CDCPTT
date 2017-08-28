@@ -14,17 +14,22 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.webkit.ConsoleMessage;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.Console;
 
 public class DynamicPi extends AppCompatActivity {
 
 
     Health_nav_db hn = new Health_nav_db(this);
     Patient_db pat=new Patient_db(this);
+    Food_db foods=new Food_db(this);
     String usr;
     String patient;
     Singleton_helper m_Inst = Singleton_helper.getInstance();
@@ -44,6 +49,7 @@ public class DynamicPi extends AppCompatActivity {
         TextView titlebar = (TextView) findViewById(R.id.tool_hn);
         this.usr = getIntent().getStringExtra("usr");
         this.patient = getIntent().getStringExtra("patient");
+        this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
         //TextView t = (TextView)findViewById(R.id.textView4);
         final String a = hn.getName(usr);
         titlebar.setText("HN: "+a);
@@ -54,17 +60,35 @@ public class DynamicPi extends AppCompatActivity {
 
 
         //Code to access database and put in local diet.
-        int c1[] = {1,1};
-        int c2[] = {1,1};
-        int c3[] = {1,1};
-        int c4[] = {1,1};
-        int c5[] = {1,1};
-        localDiet.setCategory1(c1);
-        localDiet.setCategory2(c2);
-        localDiet.setCategory3(c3);
-        localDiet.setCategory4(c4);
-        localDiet.setCategory5(c5);
+//        int c1[] = {1,1};
+//        int c2[] = {1,1};
+//        int c3[] = {1,1};
+//        int c4[] = {1,1};
+//        int c5[] = {1,1};
+//        localDiet.setCategory1(c1);
+//        localDiet.setCategory2(c2);
+//        localDiet.setCategory3(c3);
+//        localDiet.setCategory4(c4);
+//        localDiet.setCategory5(c5);
+//        int[] arr = localDiet.getPercentagesInInt();
+
+//        int c1[] = foods.getData(Integer.parseInt(this.patient),"1q");
+//        int c2[] = foods.getData(Integer.parseInt(this.patient),"2q");
+//        int c3[] = foods.getData(Integer.parseInt(this.patient),"3q");
+//        int c4[] = foods.getData(Integer.parseInt(this.patient),"4q");
+//        int c5[] = foods.getData(Integer.parseInt(this.patient),"5q");
+//        localDiet.setCategory1(c1);
+//        localDiet.setCategory2(c2);
+//        localDiet.setCategory3(c3);
+//        localDiet.setCategory4(c4);
+//        localDiet.setCategory5(c5);
+//        localDiet.setCategory1f(foods.getData(Integer.parseInt(this.patient),"1f"));
+//        localDiet.setCategory2f(foods.getData(Integer.parseInt(this.patient),"2f"));
+//        localDiet.setCategory3f(foods.getData(Integer.parseInt(this.patient),"3f"));
+//        localDiet.setCategory4f(foods.getData(Integer.parseInt(this.patient),"4f"));
+//        localDiet.setCategory5f(foods.getData(Integer.parseInt(this.patient),"5f"));
         int[] arr = localDiet.getPercentagesInInt();
+
         //
 
 
@@ -373,7 +397,7 @@ public class DynamicPi extends AppCompatActivity {
 
 
         paint.setAntiAlias(true);
-        paint.setColor(Color.GREEN);
+        paint.setColor(Color.BLUE);
         paint.setAlpha(0x80);
         Path greenPath = new Path();
         greenPath.arcTo(oval, 90, b, true);
@@ -381,20 +405,20 @@ public class DynamicPi extends AppCompatActivity {
 
 
 
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.GREEN);
         paint.setAlpha(0x80);
         Path bluePath = new Path();
         bluePath.arcTo(oval, 90 + b, c, true);
         canvas.drawPath(bluePath, paint);
 
-        paint.setColor(Color.YELLOW);
+        paint.setColor(Color.RED);
         paint.setAlpha(0x80);
         paint.setAntiAlias(true);
         Path yellowPath = new Path();
         yellowPath.arcTo(oval,90 + b + c, d, true);
         canvas.drawPath(yellowPath, paint);
 
-        paint.setColor(Color.RED);
+        paint.setColor(Color.YELLOW);
         paint.setAntiAlias(true);
         paint.setAlpha(0x80);
         Path redPath = new Path();
@@ -424,9 +448,15 @@ public class DynamicPi extends AppCompatActivity {
             //tv4.setId(id3);
             final TextView tv4 = (TextView) findViewById(R.id.tv_p4);
             final TextView tv5 = (TextView) findViewById(R.id.tv_p5);
-           int[] a={Integer.parseInt(tv1.getText().toString()),Integer.parseInt(tv2.getText().toString()),Integer.parseInt(tv3.getText().toString()),Integer.parseInt(tv4.getText().toString(),Integer.parseInt(tv5.getText().toString())) };
+           int[] a={Integer.parseInt(tv1.getText().toString()),Integer.parseInt(tv2.getText().toString()),Integer.parseInt(tv3.getText().toString()),Integer.parseInt(tv4.getText().toString()),Integer.parseInt(tv5.getText().toString()) };
             this.localDiet.setIdealDiet(a);
-            Intent i = new Intent(this, FoodDetails.class);
+            //a=localDiet.getIdealDiet();
+            int Q;
+            Log.i("tv5",String.valueOf(Integer.parseInt(tv5.getText().toString())));
+            for(Q=0;Q<a.length;Q++){
+                Log.i("info",String.valueOf(a[Q]));
+            }
+            Intent i = new Intent(this, Exploration.class);
             i.putExtra("localdiet",this.localDiet);
             i.putExtra("usr",this.usr);
             i.putExtra("patient",this.patient);

@@ -10,12 +10,15 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -39,13 +42,33 @@ public class DietCalendar extends AppCompatActivity {
     private ImageView imgPreview;
     //private VideoView videoPreview;
     private Button btnCapturePicture;//, btnRecordVideo;
-    String usr;
+    Health_nav_db hn = new Health_nav_db(this);
+    Patient_db pt = new Patient_db(this);
+    LocalDietSerialized localDiet = new LocalDietSerialized();
+    private String usr;
+    private String patient;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet_calendar);
+
+        Toolbar toolb = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolb);
+        ActionBar p = getSupportActionBar();
+        p.setDisplayShowTitleEnabled(false);
+        TextView o = (TextView)findViewById(R.id.tool_title);
+
+        TextView titlebar = (TextView) findViewById(R.id.tool_hn);
+        this.usr = getIntent().getStringExtra("usr");
+        this.patient = getIntent().getStringExtra("patient");
+        this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
+        //TextView t = (TextView)findViewById(R.id.textView4);
+        final String a = hn.getName(usr);
+        titlebar.setText("HN: "+a);
+        o.setText("Diet for patient ID: "+patient);
+
         imgPreview = (ImageView) findViewById(R.id.imgPreview);
         //videoPreview = (VideoView) findViewById(R.id.videoPreview);
         btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);

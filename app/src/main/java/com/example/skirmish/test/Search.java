@@ -96,7 +96,7 @@ public class Search extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
             Cursor c = (Cursor) parent.getItemAtPosition(position);
-            Intent i = new Intent(Search.this,DynamicPi.class);
+            Intent i = new Intent(Search.this,Presentdiet.class);
             i.putExtra("usr",usr);
             i.putExtra("patient",c.getString(0));
             startActivity(i);

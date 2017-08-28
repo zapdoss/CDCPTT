@@ -9,16 +9,16 @@ import java.io.Serializable;
 public class LocalDietSerialized implements Serializable {
 
 
-    private String[] Category1Names={"Rice","Wheat Chapati","Upma"};
-    private String[] Category2Names={"Mosami","Grapes","Salad","Palya","Leafy Vegetables","Drumsticks","Sprouts","Hagalakayi","Kheera Kadi","Ragi Mude","Moongdal"};
-    private String[] Category3Names={"Mutton Sambar","Chicken Sambar","Kebab"};
-    private String[] Category4Names={"Khichdi","Chutney","Sambar","Drumstick Sambar","Rasam","Dal Sambar"};
-    private String[] Category5Names={"Tea","Milk(Sugarless)","Coffee","Lemon Juice","Milk(Normal","Biscuits","Rusk"};
-    private int[] Category1Im={R.drawable.Rice,R.drawable.WheatChapati,R.drawable.upma};
-    private int[] Category2Im={R.drawable.Mosambi,R.drawable.Grapes,R.drawable.RawVegetableSalad,R.drawable.VegetablePlaya,R.drawable.LeafyVegetables,R.drawable.Drumsticks,R.drawable.Sprouts,R.drawable.Hagalakayi,R.drawable.KheeraKadi,R.drawable.RaggiMudde,R.drawable.Moongdal};
-    private int[] Category3Im={R.drawable.MuttonSambar,R.drawable.ChickenSambar,R.drawable.Kebab};
-    private int[] Category4Im={R.drawable.Khichdi,R.drawable.GreenChutney,R.drawable.Sambar,R.drawable.DrumStickSambar,R.drawable.Rasam,R.drawable.DalSambar};
-    private int[] Category5Im={R.drawable.TeaSugarless,R.drawable.MilkSugarless,R.drawable.CoffeeSugarless,R.drawable.LemonJuice,R.drawable.MilkNormal,R.drawable.Biscuit,R.drawable.Rusk};
+    private static String[] Category1Names={"Rice","Wheat Chapati","Upma"};
+    private static String[] Category2Names={"Mosami","Grapes","Salad","Palya","Leafy Vegetables","Drumsticks","Sprouts","Hagalakayi","Kheera Kadi","Ragi Mude","Moongdal"};
+    private static String[] Category3Names={"Mutton Sambar","Chicken Sambar","Kebab"};
+    private static String[] Category4Names={"Khichdi","Chutney","Sambar","Drumstick Sambar","Rasam","Dal Sambar"};
+    private static String[] Category5Names={"Tea","Milk(Sugarless)","Coffee","Lemon Juice","Milk(Normal","Biscuits","Rusk"};
+    private static int[] Category1Im={R.drawable.rice,R.drawable.wheatchapati,R.drawable.upma};
+    private static int[] Category2Im={R.drawable.mosambi,R.drawable.grapes,R.drawable.rawvegetablesalad,R.drawable.pegetableplaya,R.drawable.leafyvegetables,R.drawable.drumsticks,R.drawable.sprouts,R.drawable.hagalakayi,R.drawable.kheerakadi,R.drawable.raggimudde,R.drawable.moongdal};
+    private static int[] Category3Im={R.drawable.muttonsambar,R.drawable.chickensambar,R.drawable.kebab};
+    private static int[] Category4Im={R.drawable.khichdi,R.drawable.greenchutney,R.drawable.sambar,R.drawable.drumsticksambar,R.drawable.rasam,R.drawable.dalsambar};
+    private static int[] Category5Im={R.drawable.teasugarless,R.drawable.milksugarless,R.drawable.coffeesugarless,R.drawable.lemonjuice,R.drawable.milknormal,R.drawable.biscuit,R.drawable.rusk};
 
     private int[] Category1;
     private int[] Category2;
@@ -32,43 +32,43 @@ public class LocalDietSerialized implements Serializable {
     private int[] Category5f;
     private int[] IdealDiet;
 
-    public String[] getCategory1Names() {
+    public static String[] getCategory1Names() {
         return Category1Names;
     }
 
-    public String[] getCategory2Names() {
+    public static String[] getCategory2Names() {
         return Category2Names;
     }
 
-    public String[] getCategory3Names() {
+    public static String[] getCategory3Names() {
         return Category3Names;
     }
 
-    public String[] getCategory4Names() {
+    public static String[] getCategory4Names() {
         return Category4Names;
     }
 
-    public String[] getCategory5Names() {
+    public static String[] getCategory5Names() {
         return Category5Names;
     }
 
-    public int[] getCategory1Im() {
+    public static int[] getCategory1Im() {
         return Category1Im;
     }
 
-    public int[] getCategory2Im() {
+    public static int[] getCategory2Im() {
         return Category2Im;
     }
 
-    public int[] getCategory3Im() {
+    public static int[] getCategory3Im() {
         return Category3Im;
     }
 
-    public int[] getCategory4Im() {
+    public static int[] getCategory4Im() {
         return Category4Im;
     }
 
-    public int[] getCategory5Im() {
+    public static int[] getCategory5Im() {
         return Category5Im;
     }
 
@@ -120,6 +120,37 @@ public class LocalDietSerialized implements Serializable {
         else if(selected==1) setCategory2f(arr);
     }
 
+    public String[] getCategoryNames(int selected){
+        if(selected==0) return getCategory1Names();
+        else if(selected==1) return getCategory2Names();
+        else if(selected==2) return getCategory3Names();
+        else if(selected==3) return getCategory4Names();
+        else return getCategory5Names();
+    }
+
+    public int[] getCategoryIm(int selected){
+        if(selected==0) return getCategory1Im();
+        else if(selected==1) return getCategory2Im();
+        else if(selected==2) return getCategory3Im();
+        else if(selected==3) return getCategory4Im();
+        else return getCategory5Im();
+    }
+
+    public int[] getCategory(int selected){
+        if(selected==0) return getCategory1();
+        else if(selected==1) return getCategory2();
+        else if(selected==2) return getCategory3();
+        else if(selected==3) return getCategory4();
+        else return getCategory5();
+    }
+
+    public int[] getCategoryf(int selected){
+        if(selected==0) return getCategory1f();
+        else if(selected==1) return getCategory2f();
+        else if(selected==2) return getCategory3f();
+        else if(selected==3) return getCategory4f();
+        else return getCategory5f();
+    }
 
 
     public void setCategory(int[] arr, int selected){

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.skirmish.test.ExplorationContinued">
 
+    <include layout="@layout/toolbar"/>
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"

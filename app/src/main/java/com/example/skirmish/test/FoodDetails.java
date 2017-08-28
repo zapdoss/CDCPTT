@@ -32,17 +32,6 @@ public class FoodDetails extends AppCompatActivity {
     LocalDietSerialized localDiet = new LocalDietSerialized();
     private String usr;
     private String patient;
-    GridView g1;
-    String[] fats = {"Cheese", "Nuts and Seeds"};
-    int[] fats_im = {R.drawable.cheeze,R.drawable.nuts};
-    String[] carbo = {"Milk", "Potato"};
-    int[] carbo_im = {R.drawable.milk,R.drawable.potato};
-    String[] prot = {"Paneer", "Dal"};
-    int[] prot_im = {R.drawable.paneer,R.drawable.dal};
-    String[] vit = {"Cheese", "Nuts and Seeds"};
-    int[] vit_im = {R.drawable.cheeze,R.drawable.nuts};
-    String[] empty = {};
-    int[] empty_im = {};
     int selected=-1;
 
     @Override

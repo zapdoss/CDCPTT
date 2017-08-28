@@ -71,22 +71,38 @@ public class PresentDiet extends AppCompatActivity {
         patient = getIntent().getStringExtra("patient");
 
 
-        c=foods.getData(Integer.parseInt(this.patient),0);
-        for(i=0;i<carbo.length;i++){
-            carboq[i]=(Integer.parseInt(c.getString(i+1)));
-        }
-        c=foods.getData(Integer.parseInt(this.patient),1);
-        for(i=0;i<fats.length;i++){
-            fatsq[i]=(Integer.parseInt(c.getString(i+1)));
-        }
-        c=foods.getData(Integer.parseInt(this.patient),2);
-        for(i=0;i<prot.length;i++){
-            protq[i]=(Integer.parseInt(c.getString(i+1)));
-        }
-        c=foods.getData(Integer.parseInt(this.patient),3);
-        for(i=0;i<vit.length;i++){
-            vitq[i]=(Integer.parseInt(c.getString(i+1)));
-        }
+//        c=foods.getData(Integer.parseInt(this.patient),0);
+//        for(i=0;i<carbo.length;i++){
+//            carboq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+//        c=foods.getData(Integer.parseInt(this.patient),1);
+//        for(i=0;i<fats.length;i++){
+//            fatsq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+//        c=foods.getData(Integer.parseInt(this.patient),2);
+//        for(i=0;i<prot.length;i++){
+//            protq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+//        c=foods.getData(Integer.parseInt(this.patient),3);
+//        for(i=0;i<vit.length;i++){
+//            vitq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+        carboq=foods.getData(Integer.parseInt(this.patient),"0");
+//        for(i=0;i<carbo.length;i++){
+//            carboq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+        fatsq=foods.getData(Integer.parseInt(this.patient),"1");
+//        for(i=0;i<fats.length;i++){
+//            fatsq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+        protq=foods.getData(Integer.parseInt(this.patient),"2");
+//        for(i=0;i<prot.length;i++){
+//            protq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
+        vitq=foods.getData(Integer.parseInt(this.patient),"3");
+//        for(i=0;i<vit.length;i++){
+//            vitq[i]=(Integer.parseInt(c.getString(i+1)));
+//        }
 
         int sum[]={0,0,0,0};
         final String[] data2={"carbo","fat","prot","vitamin",};

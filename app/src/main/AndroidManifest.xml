@@ -63,13 +63,22 @@
         <activity
             android:name=".Confirmation"
             android:screenOrientation="landscape" />
-        <activity android:name=".PresentDiet" />
-        <activity android:name=".DietExploration" />
-        <activity android:name=".CurrentAndIdealDiet" />
-        <activity android:name=".Exploration" />
-        <activity android:name=".ExplorationContinued" />
-        <activity android:name=".MotivatorRegistration" />
-        <activity android:name=".DietCalendar"></activity>
+        <activity android:name=".PresentDiet"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".DietExploration"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".CurrentAndIdealDiet"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Exploration"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".ExplorationContinued"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MotivatorRegistration"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".DietCalendar"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Presentdiet"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

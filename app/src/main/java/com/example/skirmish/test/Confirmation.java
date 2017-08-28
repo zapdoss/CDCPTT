@@ -27,14 +27,24 @@ public class Confirmation extends AppCompatActivity {
     private String usr;
     private String patient;
     GridView g1;
-    String[] fats = {"Cheese", "Nuts and Seeds"};
-    int[] fats_im = {R.drawable.cheeze, R.drawable.nuts};
-    String[] carbo = {"Milk", "Potato"};
-    int[] carbo_im = {R.drawable.milk, R.drawable.potato};
-    String[] prot = {"Paneer", "Dal"};
-    int[] prot_im = {R.drawable.paneer, R.drawable.dal};
-    String[] vit = {"Cheese", "Nuts and Seeds"};
-    int[] vit_im = {R.drawable.cheeze, R.drawable.nuts};
+//    String[] fats = {"Cheese", "Nuts and Seeds"};
+//    int[] fats_im = {R.drawable.cheeze, R.drawable.nuts};
+//    String[] carbo = {"Milk", "Potato"};
+//    int[] carbo_im = {R.drawable.milk, R.drawable.potato};
+//    String[] prot = {"Paneer", "Dal"};
+//    int[] prot_im = {R.drawable.paneer, R.drawable.dal};
+//    String[] vit = {"Cheese", "Nuts and Seeds"};
+//    int[] vit_im = {R.drawable.cheeze, R.drawable.nuts};
+    String[] Category1 = localDiet.getCategory1Names();
+    int[] Category1Im = localDiet.getCategory1Im();
+    String[] Category2 = localDiet.getCategory2Names();
+    int[] Category2Im = localDiet.getCategory2Im();
+    String[] Category3 = localDiet.getCategory3Names();
+    int[] Category3Im = localDiet.getCategory3Im();
+    String[] Category4 = localDiet.getCategory4Names();
+    int[] Category4Im = localDiet.getCategory4Im();
+    String[] Category5 = localDiet.getCategory5Names();
+    int[] Category5Im = localDiet.getCategory5Im();
     int selected;
     int index = -1;
     Food_db foods = new Food_db(this);
@@ -69,10 +79,10 @@ public class Confirmation extends AppCompatActivity {
         //this.values = getIntent().getIntegerArrayListExtra("values");
         this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
 
-        int[] carboq=new int[carbo.length];
-        int[] fatsq=new int[fats.length];
-        int[] protq=new int[prot.length];
-        int[] vitq=new int[vit.length];
+//        int[] carboq=new int[carbo.length];
+//        int[] fatsq=new int[fats.length];
+//        int[] protq=new int[prot.length];
+//        int[] vitq=new int[vit.length];
 
         String[] nutrients={"Category 1","Category 2","Category 3","Category 4","Category 5"};
         //TextView tv=(TextView)findViewById(R.id.textView16);
@@ -153,36 +163,49 @@ public class Confirmation extends AppCompatActivity {
         pieChart.invalidate();
 
         //Find changes by comparing
-
-        for(i=0;i<fatsq.length;i++){
-            if(fatsq[i]!=localDiet.getCategory2()[i]){
-                values.add(localDiet.getCategory2()[i]);
-                values1.add(1);
-                change_im.add(fats_im[i]);
-            }
-        }
-
-        for(i=0;i<carboq.length;i++){
-            if(carboq[i]!=localDiet.getCategory1()[i]){
+        int[] Original1q = foods.getData(Integer.parseInt(this.patient),"1q");
+        int[] Original1f = foods.getData(Integer.parseInt(this.patient),"1f");
+        for(i=0;i<Category1.length;i++){
+            if(Original1q[i]!=localDiet.getCategory1()[i] || Original1f[i]!=localDiet.getCategory1f()[i]){
                 values.add(localDiet.getCategory1()[i]);
-                values1.add(1);
-                change_im.add(carbo_im[i]);
+                values1.add(localDiet.getCategory1f()[i]);
+                change_im.add(Category1Im[i]);
             }
         }
-
-        for(i=0;i<protq.length;i++){
-            if(protq[i]!=localDiet.getCategory3()[i]){
+        int[] Original2q = foods.getData(Integer.parseInt(this.patient),"2q");
+        int[] Original2f = foods.getData(Integer.parseInt(this.patient),"2f");
+        for(i=0;i<Category2.length;i++){
+            if(Original2q[i]!=localDiet.getCategory2()[i] || Original2f[i]!=localDiet.getCategory2f()[i]){
+                values.add(localDiet.getCategory2()[i]);
+                values1.add(localDiet.getCategory2f()[i]);
+                change_im.add(Category2Im[i]);
+            }
+        }
+        int[] Original3q = foods.getData(Integer.parseInt(this.patient),"3q");
+        int[] Original3f = foods.getData(Integer.parseInt(this.patient),"3f");
+        for(i=0;i<Category3.length;i++){
+            if(Original3q[i]!=localDiet.getCategory3()[i] || Original3f[i]!=localDiet.getCategory3f()[i]){
                 values.add(localDiet.getCategory3()[i]);
-                values1.add(1);
-                change_im.add(prot_im[i]);
+                values1.add(localDiet.getCategory3f()[i]);
+                change_im.add(Category3Im[i]);
             }
         }
-
-        for(i=0;i<vitq.length;i++){
-            if(vitq[i]!=localDiet.getCategory4()[i]){
+        int[] Original4q = foods.getData(Integer.parseInt(this.patient),"4q");
+        int[] Original4f = foods.getData(Integer.parseInt(this.patient),"4f");
+        for(i=0;i<Category4.length;i++){
+            if(Original4q[i]!=localDiet.getCategory4()[i] || Original4f[i]!=localDiet.getCategory4f()[i]){
                 values.add(localDiet.getCategory4()[i]);
-                values1.add(1);
-                change_im.add(vit_im[i]);
+                values1.add(localDiet.getCategory4f()[i]);
+                change_im.add(Category4Im[i]);
+            }
+        }
+        int[] Original5q = foods.getData(Integer.parseInt(this.patient),"5q");
+        int[] Original5f = foods.getData(Integer.parseInt(this.patient),"5f");
+        for(i=0;i<Category5.length;i++){
+            if(Original5q[i]!=localDiet.getCategory5()[i] || Original5f[i]!=localDiet.getCategory5f()[i]){
+                values.add(localDiet.getCategory5()[i]);
+                values1.add(localDiet.getCategory5f()[i]);
+                change_im.add(Category5Im[i]);
             }
         }
 
@@ -227,6 +250,7 @@ public class Confirmation extends AppCompatActivity {
     public void confirm2(View v){
         if(v.getId()==R.id.confirm2){
             //foods.update(Integer.parseInt(this.patient),this.selected,values);
+            updateFoodDB(Integer.parseInt(this.patient));
             Intent intent = new Intent(getApplicationContext(), DietCalendar.class);
             intent.putExtra("usr",usr);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -241,8 +265,15 @@ public class Confirmation extends AppCompatActivity {
             i.putExtra("localdiet",this.localDiet);
             i.putExtra("usr",this.usr);
             i.putExtra("patient",this.patient);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+        }
+    }
+
+    public void updateFoodDB(int s){
+        int i;
+        for(i=0;i<5;i++){
+            foods.update(s,i,localDiet.getCategory(i),localDiet.getCategoryf(i));
         }
     }
 }

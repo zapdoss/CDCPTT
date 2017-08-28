@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.skirmish.test.CurrentAndIdealDiet">
 
+    <include layout="@layout/toolbar"/>
+
+
     <com.github.mikephil.charting.charts.PieChart
         android:layout_height="271dp"
         android:layout_width="343dp"
@@ -67,7 +70,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <ImageView
         android:id="@+id/imageView6"

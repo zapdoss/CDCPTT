@@ -35,20 +35,31 @@ public class Food_change extends AppCompatActivity {
     private String usr;
     private String patient;
     GridView g1;
-    String[] fats = {"Cheese", "Nuts and Seeds"};
-    int[] fats_im = {R.drawable.cheeze,R.drawable.nuts};
-    String[] carbo = {"Milk", "Potato"};
-    int[] carbo_im = {R.drawable.milk,R.drawable.potato};
-    String[] prot = {"Paneer", "Dal"};
-    int[] prot_im = {R.drawable.paneer,R.drawable.dal};
-    String[] vit = {"Cheese", "Nuts and Seeds"};
-    int[] vit_im = {R.drawable.cheeze,R.drawable.nuts};
+    /*String[] Category1 = localDiet.getCategory1Names();
+    int[] Category1Im = localDiet.getCategory1Im();
+    String[] Category2 = localDiet.getCategory2Names();
+    int[] Category2Im = localDiet.getCategory2Im();
+    String[] Category3 = localDiet.getCategory3Names();
+    int[] Category3Im = localDiet.getCategory3Im();
+    String[] Category4 = localDiet.getCategory4Names();
+    int[] Category4Im = localDiet.getCategory4Im();
+    String[] Category5 = localDiet.getCategory5Names();
+    int[] Category5Im = localDiet.getCategory5Im();*/
+//    int[] fats_im = {R.drawable.cheeze,R.drawable.nuts};
+//    String[] carbo = {"Milk", "Potato"};
+//    int[] carbo_im = {R.drawable.milk,R.drawable.potato};
+//    String[] prot = {"Paneer", "Dal"};
+//    int[] prot_im = {R.drawable.paneer,R.drawable.dal};
+//    String[] vit = {"Cheese", "Nuts and Seeds"};
+//    int[] vit_im = {R.drawable.cheeze,R.drawable.nuts};
     int selected;
     int index=-1;
     //Food_db foods = new Food_db(this);
     String[] nut;
     int[] nut_im;
     ArrayList<Integer> values=new ArrayList<>();
+    ArrayList<Integer> values1=new ArrayList<>();
+
     RadioButton rb = null;
 
     @Override
@@ -71,6 +82,8 @@ public class Food_change extends AppCompatActivity {
         titlebar.setText("HN: "+a);
         o.setText("Patient ID: "+patient);
         this.selected=Integer.parseInt(getIntent().getStringExtra("category"));
+        this.nut=this.localDiet.getCategoryNames(this.selected);
+        this.nut_im=this.localDiet.getCategoryIm(this.selected);
 
         final int[] data1= localDiet.getTotalArray();
         final String[] data2={"Category 1","Category 2","Category 3","Category 4","Category 5"};
@@ -111,33 +124,34 @@ public class Food_change extends AppCompatActivity {
 
         g1=(GridView)findViewById(R.id.gridview3);
         setAdap(Integer.toString(this.selected));
-        int qua[];
+        int qua[]=localDiet.getCategory(this.selected);
+        int fre[]=localDiet.getCategoryf(this.selected);
 
-        if (selected==0){
-            nut=carbo;
-            nut_im=carbo_im;
-            qua=localDiet.getCategory1();
-        }
-        else if (selected==1){
-            nut=fats;
-            nut_im=fats_im;
-            qua=localDiet.getCategory2();
-        }
-        else if (selected==2){
-            nut=prot;
-            nut_im=prot_im;
-            qua=localDiet.getCategory3();
-        }
-        else if (selected==3){
-            nut=vit;
-            nut_im=vit_im;
-            qua=localDiet.getCategory4();
-        }
-        else {
-            nut=carbo;
-            nut_im=carbo_im;
-            qua=localDiet.getCategory5();
-        }
+//        if (selected==0){
+//            nut=carbo;
+//            nut_im=carbo_im;
+//            qua=localDiet.getCategory1();
+//        }
+//        else if (selected==1){
+//            nut=fats;
+//            nut_im=fats_im;
+//            qua=localDiet.getCategory2();
+//        }
+//        else if (selected==2){
+//            nut=prot;
+//            nut_im=prot_im;
+//            qua=localDiet.getCategory3();
+//        }
+//        else if (selected==3){
+//            nut=vit;
+//            nut_im=vit_im;
+//            qua=localDiet.getCategory4();
+//        }
+//        else {
+//            nut=carbo;
+//            nut_im=carbo_im;
+//            qua=localDiet.getCategory5();
+//        }
 
         //Cursor c = foods.getData(Integer.parseInt(patient),selected);
         //int i;
@@ -145,6 +159,7 @@ public class Food_change extends AppCompatActivity {
         for(i=0;i<qua.length;i++){
             //values.add(Integer.parseInt(c.getString(i+1)));
             values.add(qua[i]);
+            values1.add(fre[i]);
         }
 
 
@@ -173,28 +188,31 @@ public class Food_change extends AppCompatActivity {
                 //}
                 rb=itemcheck;
                 //itemcheck.setChecked(true);
-                if (selected==0){
-                    tv2.setText(carbo[position]);
-                    iv.setImageResource(carbo_im[position]);
-                    tv1.setText("Info about "+carbo[position]);
-                    //carbo[position]="yy";
-                    //setAdap(Integer.toString(selected));
-                }
-                else if (selected==1){
-                    tv2.setText(fats[position]);
-                    iv.setImageResource(fats_im[position]);
-                    tv1.setText("Info about "+fats[position]);
-                }
-                else if (selected==2){
-                    tv2.setText(prot[position]);
-                    iv.setImageResource(prot_im[position]);
-                    tv1.setText("Info about "+prot[position]);
-                }
-                else if (selected==3){
-                    tv2.setText(vit[position]);
-                    iv.setImageResource(vit_im[position]);
-                    tv1.setText("Info about "+vit[position]);
-                }
+                tv2.setText(nut[position]);
+                iv.setImageResource(nut_im[position]);
+                tv1.setText(nut[position]);
+//                if (selected==0){
+//                    tv2.setText(carbo[position]);
+//                    iv.setImageResource(carbo_im[position]);
+//                    tv1.setText("Info about "+carbo[position]);
+//                    //carbo[position]="yy";
+//                    //setAdap(Integer.toString(selected));
+//                }
+//                else if (selected==1){
+//                    tv2.setText(fats[position]);
+//                    iv.setImageResource(fats_im[position]);
+//                    tv1.setText("Info about "+fats[position]);
+//                }
+//                else if (selected==2){
+//                    tv2.setText(prot[position]);
+//                    iv.setImageResource(prot_im[position]);
+//                    tv1.setText("Info about "+prot[position]);
+//                }
+//                else if (selected==3){
+//                    tv2.setText(vit[position]);
+//                    iv.setImageResource(vit_im[position]);
+//                    tv1.setText("Info about "+vit[position]);
+//                }
 
             }
         });
@@ -208,11 +226,14 @@ public class Food_change extends AppCompatActivity {
             i.putExtra("usr",this.usr);
             i.putExtra("patient",this.patient);
             int a[]=new int[values.size()];
+            int a1[]=new int[values1.size()];
             int j;
             for(j=0;j<values.size();j++){
                 a[j]=values.get(j);
+                a1[j]=values1.get(j);
             }
             localDiet.setCategory(a,selected);
+            localDiet.setCategoryf(a1,selected);
             i.putExtra("localdiet",this.localDiet);
             Bundle b = new Bundle();
             b.putIntegerArrayList("values",values);
@@ -235,7 +256,7 @@ public class Food_change extends AppCompatActivity {
                 // set the custom dialog components - text, image and button
                 final TextView text = (TextView) dialog.findViewById(R.id.textView14);
                 final TextView textf = (TextView) dialog.findViewById(R.id.textView16);
-                textf.setText(Integer.toString(values.get(index)));
+                textf.setText(Integer.toString(values1.get(index)));
                 text.setText(Integer.toString(values.get(index)));
 
                 Button add = (Button) dialog.findViewById(R.id.b_add);
@@ -285,6 +306,7 @@ public class Food_change extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         values.set(index,Integer.parseInt(text.getText().toString()));
+                        values1.set(index,Integer.parseInt(textf.getText().toString()));
                         dialog.dismiss();
                     }
                 });
@@ -299,9 +321,10 @@ public class Food_change extends AppCompatActivity {
 
     void setAdap(String s){
         //int c= Integer.parseInt(s)
-        if(s.equals("1")) g1.setAdapter(new CustomGridAdapter(this,fats,fats_im));
-        else if(s.equals("2")) g1.setAdapter(new CustomGridAdapter(this,prot,prot_im));
-        else if(s.equals("3")) g1.setAdapter(new CustomGridAdapter(this,vit,vit_im));
-        else if(s.equals("0")) g1.setAdapter(new CustomGridAdapter(this,carbo,carbo_im));
+        g1.setAdapter(new CustomGridAdapter(this,nut,nut_im));
+//        if(s.equals("1")) g1.setAdapter(new CustomGridAdapter(this,fats,fats_im));
+//        else if(s.equals("2")) g1.setAdapter(new CustomGridAdapter(this,prot,prot_im));
+//        else if(s.equals("3")) g1.setAdapter(new CustomGridAdapter(this,vit,vit_im));
+//        else if(s.equals("0")) g1.setAdapter(new CustomGridAdapter(this,carbo,carbo_im));
     }
 }

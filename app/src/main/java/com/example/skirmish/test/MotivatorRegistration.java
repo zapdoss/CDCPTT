@@ -10,12 +10,15 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -27,6 +30,8 @@ import java.util.Locale;
 public class MotivatorRegistration extends AppCompatActivity {
     private String usr;
     private String patient;
+    private LocalDietSerialized localDiet;
+    private Health_nav_db hn=new Health_nav_db(this);
     private static final int REQUEST_WRITE_STORAGE = 112;
     // Activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -48,8 +53,22 @@ public class MotivatorRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motivator_registration);
-        usr = getIntent().getStringExtra("usr");
-        patient = getIntent().getStringExtra("patient");
+        Toolbar toolb = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolb);
+        ActionBar p = getSupportActionBar();
+        p.setDisplayShowTitleEnabled(false);
+        TextView o = (TextView)findViewById(R.id.tool_title);
+
+        TextView titlebar = (TextView) findViewById(R.id.tool_hn);
+        this.usr = getIntent().getStringExtra("usr");
+        this.localDiet = (LocalDietSerialized) getIntent().getSerializableExtra("localdiet");
+        this.patient = getIntent().getStringExtra("patient");
+        //this.localDiet=(LocalDietSerialized)getIntent().getSerializableExtra("localdiet");
+        //TextView t = (TextView)findViewById(R.id.textView4);
+        final String a = hn.getName(usr);
+        titlebar.setText("HN: "+a);
+        o.setText("Patient ID: "+patient);
+
         imgPreview = (ImageView) findViewById(R.id.imgPreview);
         //videoPreview = (VideoView) findViewById(R.id.videoPreview);
         btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
@@ -70,9 +89,10 @@ public class MotivatorRegistration extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MotivatorRegistration.this, FoodDetails.class);
+                Intent i = new Intent(MotivatorRegistration.this, CurrentAndIdealDiet.class);
                 i.putExtra("usr", usr);
                 i.putExtra("patient", patient);
+                i.putExtra("localdiet",localDiet);
                 startActivity(i);
                 //startActivity(new Intent(MotivatorRegistration.this, FoodDetails.class));
             }
