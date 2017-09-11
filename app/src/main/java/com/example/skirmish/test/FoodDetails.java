@@ -84,8 +84,12 @@ public class FoodDetails extends AppCompatActivity {
         swt.setColors(colors);
 
         PieData dat = new PieData(swt);
+        dat.setDrawValues(false);
+
         pieChart.setData(dat);
         pieChart.isUsePercentValuesEnabled();
+        pieChart.setDrawSliceText(false);
+        pieChart.setUsePercentValues(true);
         pieChart.getLegend().setEnabled(false);
         pieChart.getDescription().setEnabled(false);
         //pieChart.setTransparentCircleAlpha(2);

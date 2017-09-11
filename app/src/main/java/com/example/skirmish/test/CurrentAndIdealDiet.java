@@ -156,21 +156,29 @@ public class CurrentAndIdealDiet extends AppCompatActivity {
         swt1.setColors(colors);
 
         PieData dat = new PieData(swt);
+        dat.setDrawValues(false);
+
         pieChart.setData(dat);
         //pieChart.highlightValue(selected, 0, false);
         pieChart.isUsePercentValuesEnabled();
         pieChart.getLegend().setEnabled(false);
         pieChart.getDescription().setEnabled(false);
+        pieChart.setDrawSliceText(false);
+        pieChart.setUsePercentValues(true);
         pieChart.setClickable(false);
         pieChart.setTouchEnabled(false);
         pieChart.invalidate();
 
         PieData dat1 = new PieData(swt1);
+        dat1.setDrawValues(false);
+
         pieChart1.setData(dat1);
         //pieChart.highlightValue(selected, 0, false);
         pieChart1.isUsePercentValuesEnabled();
         pieChart1.getLegend().setEnabled(false);
         pieChart1.getDescription().setEnabled(false);
+        pieChart1.setDrawSliceText(false);
+        pieChart1.setUsePercentValues(true);
         pieChart1.setClickable(false);
         pieChart1.setTouchEnabled(false);
         pieChart1.invalidate();

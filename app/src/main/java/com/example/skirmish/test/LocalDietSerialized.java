@@ -14,6 +14,33 @@ public class LocalDietSerialized implements Serializable {
     private static String[] Category3Names={"Mutton Sambar","Chicken Sambar","Kebab"};
     private static String[] Category4Names={"Khichdi","Chutney","Sambar","Drumstick Sambar","Rasam","Dal Sambar"};
     private static String[] Category5Names={"Tea","Milk(Sugarless)","Coffee","Lemon Juice","Milk(Normal","Biscuits","Rusk"};
+
+    public static String[] getCategory1NamesKannada() {
+        return Category1NamesKannada;
+    }
+
+    public static String[] getCategory2NamesKannada() {
+        return Category2NamesKannada;
+    }
+
+    private static String[] Category1NamesKannada={ "ಅಕ್ಕಿ ","ಚಪತಿ " ," ಉಪ್ಮಾ" };
+    private static String[] Category2NamesKannada={ "ಮೊಸಂಬಿ ", "-ದ್ರಾಕ್ಷಿಗಳು ", " ಕಚ್ಚಾ ತರಕಾರಿ ಸಲಾಡ್ ","ತರಕಾರಿ ಪಲ್ಯ ","ಎಲೆಗಳ ತರಕಾರಿಗಳು ","ಡ್ರಮ್ ಸ್ಟಿಕ್ಗಳು ","ಮೊಗ್ಗುಗಳು ","ಹಾಗಲಕಾಯಿ ", "ಖೀರಾ ಕಾಕ್ಡಿ ", "ರಾಗಿ ಮಡ್ಡೆ ","ಮೊಂಗ್ ಡಾಲ್ " };
+
+    public static String[] getCategory3NamesKannada() {
+        return Category3NamesKannada;
+    }
+
+    public static String[] getCategory4NamesKannada() {
+        return Category4NamesKannada;
+    }
+
+    public static String[] getCategory5NamesKannada() {
+        return Category5NamesKannada;
+    }
+
+    private static String[] Category3NamesKannada={"ಮಟನ್ ಸಾಂಬರ್ ","ಕೋಳಿ ಸಾಂಬರ್ ","ಕಬಾಬ್ "};
+    private static String[] Category4NamesKannada={"ಖಿಚಿ ","ಚಟ್ನಿ ","ಸಂಬಾರ್ ","ಡ್ರಮ್ಸ್ಟಿಕ್ ಸಾಂಬರ್ ","ರಾಸಮ್ ","ದಲ್ ಸಾಂಬರ್ "};
+    private static String[] Category5NamesKannada={"ಚಹಾ ","ಹಾಲು ","ಕಾಫಿ ","ನಿಂಬೆ ರಸ ","ಹಾಲು ","ಬಿಸ್ಕತ್ತು ","ರಸ್ಕ್ "};
     private static int[] Category1Im={R.drawable.rice,R.drawable.wheatchapati,R.drawable.upma};
     private static int[] Category2Im={R.drawable.mosambi,R.drawable.grapes,R.drawable.rawvegetablesalad,R.drawable.pegetableplaya,R.drawable.leafyvegetables,R.drawable.drumsticks,R.drawable.sprouts,R.drawable.hagalakayi,R.drawable.kheerakadi,R.drawable.raggimudde,R.drawable.moongdal};
     private static int[] Category3Im={R.drawable.muttonsambar,R.drawable.chickensambar,R.drawable.kebab};
@@ -126,6 +153,14 @@ public class LocalDietSerialized implements Serializable {
         else if(selected==2) return getCategory3Names();
         else if(selected==3) return getCategory4Names();
         else return getCategory5Names();
+    }
+
+    public String[] getCategoryNamesKannada(int selected){
+        if(selected==0) return getCategory1NamesKannada();
+        else if(selected==1) return getCategory2NamesKannada();
+        else if(selected==2) return getCategory3NamesKannada();
+        else if(selected==3) return getCategory4NamesKannada();
+        else return getCategory5NamesKannada();
     }
 
     public int[] getCategoryIm(int selected){

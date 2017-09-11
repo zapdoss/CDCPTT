@@ -64,7 +64,7 @@ public class CustomGridAdapter extends BaseAdapter{
         View rowView;
 
         rowView = inflater.inflate(R.layout.single_row_item_2, null);
-        holder.tv=(TextView) rowView.findViewById(R.id.tv_adapter2);
+        //holder.tv=(TextView) rowView.findViewById(R.id.tv_adapter2);
         holder.img=(ImageView) rowView.findViewById(R.id.iv_adapter2);
         holder.sel=(RadioButton) rowView.findViewById(R.id.rb_adapter2);
 
@@ -83,7 +83,7 @@ public class CustomGridAdapter extends BaseAdapter{
             }
         });*/
 
-        holder.tv.setText(result[position]);
+        //holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
 
         return rowView;

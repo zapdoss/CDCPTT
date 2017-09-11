@@ -103,6 +103,8 @@
                 android:layout_weight="0.25"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:text="Item information will appear here" />
 
             <Button

@@ -98,11 +98,14 @@ public class Presentdiet extends AppCompatActivity {
         swt.setColors(colors);
 
         PieData dat = new PieData(swt);
+        dat.setDrawValues(false);
         pieChart.setData(dat);
         //pieChart.highlightValue(selected, 0, false);
         pieChart.isUsePercentValuesEnabled();
         pieChart.getLegend().setEnabled(false);
         pieChart.getDescription().setEnabled(false);
+        pieChart.setDrawSliceText(false);
+        pieChart.setUsePercentValues(true);
         pieChart.setClickable(false);
         pieChart.setTouchEnabled(false);
         pieChart.invalidate();

@@ -154,9 +154,13 @@ public class Confirmation extends AppCompatActivity {
         swt.setColors(colors);
 
         PieData dat = new PieData(swt);
+        dat.setDrawValues(false);
+
         pieChart.setData(dat);
         pieChart.isUsePercentValuesEnabled();
         pieChart.getLegend().setEnabled(false);
+        pieChart.setDrawSliceText(false);
+        pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
         pieChart.setClickable(false);
         pieChart.setTouchEnabled(false);

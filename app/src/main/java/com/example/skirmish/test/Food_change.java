@@ -55,7 +55,7 @@ public class Food_change extends AppCompatActivity {
     int selected;
     int index=-1;
     //Food_db foods = new Food_db(this);
-    String[] nut;
+    String[] nut,nutKannada;
     int[] nut_im;
     ArrayList<Integer> values=new ArrayList<>();
     ArrayList<Integer> values1=new ArrayList<>();
@@ -83,6 +83,7 @@ public class Food_change extends AppCompatActivity {
         o.setText("Patient ID: "+patient);
         this.selected=Integer.parseInt(getIntent().getStringExtra("category"));
         this.nut=this.localDiet.getCategoryNames(this.selected);
+        this.nutKannada=this.localDiet.getCategoryNamesKannada(this.selected);
         this.nut_im=this.localDiet.getCategoryIm(this.selected);
 
         final int[] data1= localDiet.getTotalArray();
@@ -111,12 +112,17 @@ public class Food_change extends AppCompatActivity {
         swt.setColors(colors);
 
         PieData dat = new PieData(swt);
+        dat.setDrawValues(false);
+
         pieChart.setData(dat);
         //pieChart.setCenterText("BMI:"+df.format(bmi));
         pieChart.highlightValue(selected, 0, false);
         pieChart.isUsePercentValuesEnabled();
         pieChart.getLegend().setEnabled(false);
         pieChart.getDescription().setEnabled(false);
+        pieChart.setDrawSliceText(false);
+        pieChart.setUsePercentValues(true);
+        pieChart.setDrawCenterText(false);
         pieChart.setClickable(false);
         pieChart.setTouchEnabled(false);
         pieChart.invalidate();
@@ -190,7 +196,7 @@ public class Food_change extends AppCompatActivity {
                 //itemcheck.setChecked(true);
                 tv2.setText(nut[position]);
                 iv.setImageResource(nut_im[position]);
-                tv1.setText(nut[position]);
+                tv1.setText(nut[position]+" ("+nutKannada[position]+")");
 //                if (selected==0){
 //                    tv2.setText(carbo[position]);
 //                    iv.setImageResource(carbo_im[position]);
