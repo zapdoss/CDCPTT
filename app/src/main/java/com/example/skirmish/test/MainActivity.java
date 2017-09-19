@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         helper.insertx();
-        //patients.insertx(15,"aamir",45,"admin",imageInByte2,20,20,30,30);
+        patients.insertx(15,"aamir",45,"admin",imageInByte2,20,20,30,30);
         patients.insertx(3,"saahil",13,"hn1",null,10,40,20,30);
         foods.insertCat1(3,1,1,2,2,5,4);
         foods.insertCat2(3,1,1,2,2,3,1,0,0,1,1,1,1,0,0,1,1,0,0,1,1,2,1);
