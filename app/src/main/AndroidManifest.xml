@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -25,6 +25,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">
@@ -63,22 +74,31 @@
         <activity
             android:name=".Confirmation"
             android:screenOrientation="landscape" />
-        <activity android:name=".PresentDiet"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".DietExploration"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".CurrentAndIdealDiet"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".Exploration"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".ExplorationContinued"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".MotivatorRegistration"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".DietCalendar"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".Presentdiet"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".PresentDiet"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DietExploration"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".CurrentAndIdealDiet"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Exploration"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ExplorationContinued"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MotivatorRegistration"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DietCalendar"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Presentdiet"
+            android:screenOrientation="landscape" />
+        <activity android:name=".PatientReg"></activity>
     </application>
 
 </manifest>

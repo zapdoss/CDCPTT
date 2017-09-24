@@ -2,6 +2,8 @@ package com.example.skirmish.test;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.annotation.IdRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +24,7 @@ public class Search extends AppCompatActivity {
     Patient_db pt = new Patient_db(this);
     private CustomCursorAdapter customAdapter;
     String usr;
-
+    private FloatingActionButton newPatient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class Search extends AppCompatActivity {
         titlebar.setText("HN: "+a);
 
         final GridView grid = (GridView)findViewById(R.id.grid1);
+        newPatient=(FloatingActionButton)findViewById(R.id.addP);
         //Cursor c = hn.getAllData();
 
         customAdapter = new CustomCursorAdapter(Search.this, pt.getAllData(usr));
@@ -86,7 +89,14 @@ public class Search extends AppCompatActivity {
 
         grid.setOnItemClickListener(myOnItemClickListener);
 
-
+        newPatient.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(Search.this,PatientReg.class);
+                i.putExtra("usr",usr);
+                //i.putExtra("patient",c.getString(0));
+                startActivity(i);
+            }
+        });
 
     }
 
