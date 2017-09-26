@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -46,20 +47,22 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/tv_age"
+                android:inputType="number"
                 android:layout_marginStart="40sp"
                 android:layout_toRightOf="@+id/tv_age"
                 android:ems="10" />
 
             <EditText
+                android:id="@+id/et_nm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/tv_age"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
+                android:layout_alignLeft="@+id/et_age"
+                android:layout_alignStart="@+id/et_age"
                 android:ems="10" />
 
             <RadioButton
@@ -67,8 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/textView11"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
+                android:layout_alignLeft="@+id/et_age"
+                android:layout_alignStart="@+id/et_age"
                 android:text="Male" />
 
             <RadioButton
@@ -90,7 +93,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="64dp"
                 android:onClick="addPatient"
-                android:text="Add" />
+                android:text="Add Patient" />
 
         </RelativeLayout>
 
@@ -99,11 +102,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="0.6">
+
             <ImageView
+                android:id="@+id/dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                android:id="@+id/dp"/>
+                app:srcCompat="@drawable/pic" />
 
             <Button
                 android:id="@+id/b_takePic"
@@ -111,7 +116,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.9"
                 android:onClick="takePic"
-                android:text="Add Image" />
+                android:text="Take Image" />
         </LinearLayout>
 
 

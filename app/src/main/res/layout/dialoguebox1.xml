@@ -13,11 +13,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="Some Random Text"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            />
+            android:layout_marginLeft="100sp"
+            android:layout_marginRight="100sp"
+            android:text="Selected Food Item को आप एक दिन में कितनी बॉर (Frequency) और कब इस्तेमाल करते हैं ...Enter करे:-"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </RelativeLayout>
 
     <LinearLayout

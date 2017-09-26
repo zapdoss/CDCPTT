@@ -3,6 +3,7 @@ package com.example.skirmish.test;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
@@ -77,44 +79,7 @@ public class CurrentAndIdealDiet extends AppCompatActivity {
         titlebar.setText("HN: "+a);
         o.setText("Patient ID: "+patient);
         int[] dataString;// = new int[4];
-        //dataString =p.getArray(Integer.parseInt(patient));
-      //  dataString=o.getAllContacts("maya");
-        //   Log.d("Current & Ideal Diet", "Cone");
-//        carboq=foods.getData(Integer.parseInt(this.patient),"0");
-////        for(i=0;i<carbo.length;i++){
-////            carboq[i]=(Integer.parseInt(c.getString(i+1)));
-////        }
-//        fatsq=foods.getData(Integer.parseInt(this.patient),"1");
-////        for(i=0;i<fats.length;i++){
-////            fatsq[i]=(Integer.parseInt(c.getString(i+1)));
-////        }
-//        protq=foods.getData(Integer.parseInt(this.patient),"2");
-////        for(i=0;i<prot.length;i++){
-////            protq[i]=(Integer.parseInt(c.getString(i+1)));
-////        }
-//        vitq=foods.getData(Integer.parseInt(this.patient),"3");
-////        for(i=0;i<vit.length;i++){
-////            vitq[i]=(Integer.parseInt(c.getString(i+1)));
-////        }
 
-//        int sum[]={0,0,0,0};
-//        final String[] data2={"carbo","fat","prot","vitamin",};
-//        for(i=0;i<carboq.length;i++){
-//            sum[0]=sum[0]+carboq[i];
-//        }
-//        for(i=0;i<fatsq.length;i++){
-//            sum[1]=sum[1]+fatsq[i];
-//        }
-//        for(i=0;i<protq.length;i++){
-//            sum[2]=sum[2]+protq[i];
-//        }
-//        for(i=0;i<vitq.length;i++){
-//            sum[3]=sum[3]+vitq[i];
-//        }
-//
-//        for(int i=0; i<yData.length; i++) {
-//            yData[i] = sum[i];//(dataString[i]);
-//        }
 
         yData=localDiet.getPercentages();
         final int[] data1=localDiet.getTotalArray();
@@ -162,7 +127,10 @@ public class CurrentAndIdealDiet extends AppCompatActivity {
         //pieChart.highlightValue(selected, 0, false);
         pieChart.isUsePercentValuesEnabled();
         pieChart.getLegend().setEnabled(false);
-        pieChart.getDescription().setEnabled(false);
+        Description d1 = new Description();
+        d1.setText("आपकी Present Diet");
+        d1.setTextSize(15);
+        pieChart.setDescription(d1);
         pieChart.setDrawSliceText(false);
         pieChart.setUsePercentValues(true);
         pieChart.setClickable(false);
@@ -176,7 +144,11 @@ public class CurrentAndIdealDiet extends AppCompatActivity {
         //pieChart.highlightValue(selected, 0, false);
         pieChart1.isUsePercentValuesEnabled();
         pieChart1.getLegend().setEnabled(false);
-        pieChart1.getDescription().setEnabled(false);
+        Description d2 = new Description();
+        d2.setText("आपकी Ideal Diet");
+        //d2.setTextAlign(Paint.Align.CENTER);
+        d2.setTextSize(15);
+        pieChart1.setDescription(d2);
         pieChart1.setDrawSliceText(false);
         pieChart1.setUsePercentValues(true);
         pieChart1.setClickable(false);

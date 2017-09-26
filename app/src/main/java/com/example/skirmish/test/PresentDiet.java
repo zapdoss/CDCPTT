@@ -139,7 +139,7 @@ public class PresentDiet extends AppCompatActivity {
         int[] dataString;// = new int[4];
         Patient_db p= new Patient_db(this);
 
-        dataString =p.getArray(Integer.parseInt(patient));
+        //dataString =p.getArray(Integer.parseInt(patient));
         //  dataString=o.getAllContacts("maya");
         //   Log.d("Current & Ideal Diet", "Cone");
         for(int i=0; i<yData.length; i++) {

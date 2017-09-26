@@ -15,7 +15,7 @@ import java.util.List;
 public class Food_db extends SQLiteOpenHelper {
 
 
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 10;
     private static final String DB_NAME = "food.db";
     private static final String TABLE_NAME1Q = "Cat1_q";
     private static final String TABLE_NAME1F = "Cat1_f";

@@ -257,7 +257,7 @@ public class Food_change extends AppCompatActivity {
 
                 final Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.dialoguebox1);
-                dialog.setTitle("Change Quantity");
+                dialog.setTitle("Select Food Item’s Quantity and Frequency");
 
                 // set the custom dialog components - text, image and button
                 final TextView text = (TextView) dialog.findViewById(R.id.textView14);

@@ -39,7 +39,7 @@ public class CustomCursorAdapter extends CursorAdapter {
         TextView textViewPersonName = (TextView) view.findViewById(R.id.tv_person_name);
         textViewPersonName.setText(cursor.getString(1));
         TextView textViewUserName = (TextView) view.findViewById(R.id.tv_person_user);
-        textViewUserName.setText(cursor.getString(2));
+        textViewUserName.setText("ID: "+cursor.getString(0));
         if(!cursor.isNull(4)) {
             byte[] outImage = cursor.getBlob(4);
             ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);

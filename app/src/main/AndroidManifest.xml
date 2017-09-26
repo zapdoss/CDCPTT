@@ -98,7 +98,9 @@
         <activity
             android:name=".Presentdiet"
             android:screenOrientation="landscape" />
-        <activity android:name=".PatientReg"></activity>
+        <activity
+            android:name=".PatientReg"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

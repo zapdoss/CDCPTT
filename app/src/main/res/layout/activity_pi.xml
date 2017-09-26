@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="5dp"
-        android:text="Modify Diet"
-        android:textSize="35sp" />
+        android:text="आपको क्या लगता है की आपकी ideal diet क्या होनी चाहिए ? बदलाव करे"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="?attr/colorAccent"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +26,7 @@
             android:id="@+id/rl_pi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.4">
+            android:layout_weight="0.5">
 
         </RelativeLayout>
 
@@ -32,7 +34,7 @@
             android:id="@+id/rl_data"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.6">
+            android:layout_weight="0.5">
 
             <TextView
                 android:id="@+id/tv_s4"
@@ -41,7 +43,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textSize="20sp"
-                android:text="          "/>
+                android:text="  "/>
             <TextView
                 android:id="@+id/tv_s3"
                 android:layout_width="wrap_content"
@@ -49,7 +51,7 @@
                 android:layout_above="@id/tv_s4"
                 android:layout_alignLeft="@id/tv_s4"
                 android:textSize="20sp"
-                android:text="           "/>
+                android:text="  "/>
             <TextView
                 android:id="@+id/tv_s2"
                 android:layout_width="wrap_content"
@@ -57,7 +59,7 @@
                 android:layout_above="@id/tv_s3"
                 android:layout_alignLeft="@id/tv_s3"
                 android:textSize="20sp"
-                android:text="           "/>
+                android:text="  "/>
             <TextView
                 android:id="@+id/tv_s1"
                 android:layout_width="wrap_content"
@@ -65,7 +67,7 @@
                 android:layout_above="@id/tv_s2"
                 android:layout_alignLeft="@id/tv_s2"
                 android:textSize="20sp"
-                android:text="           "/>
+                android:text="  "/>
             <TextView
                 android:id="@+id/tv_s5"
                 android:layout_width="wrap_content"
@@ -73,14 +75,111 @@
                 android:layout_below="@id/tv_s4"
                 android:layout_alignLeft="@id/tv_s4"
                 android:textSize="20sp"
-                android:text="           "/>
+                android:text="  "/>
+
+            <TextView
+                android:id="@+id/tv_c4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/tv_s4"
+                android:layout_toLeftOf="@id/tv_s4"
+                android:textSize="20sp"
+                android:text="सांभर "/>
+
+            <TextView
+                android:id="@+id/tv_c3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c4"
+                android:layout_toStartOf="@id/tv_s3"
+                android:layout_toLeftOf="@id/tv_s3"
+                android:textSize="20sp"
+                android:text="गोश्त "/>
+
+            <TextView
+                android:id="@+id/tv_c2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c3"
+                android:layout_toStartOf="@id/tv_s2"
+                android:layout_toLeftOf="@id/tv_s2"
+                android:textAlignment="textEnd"
+                android:textSize="20sp"
+                android:text="फल, अनाज और सब्जियां "/>
+
+            <TextView
+                android:id="@+id/tv_c1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_c2"
+                android:layout_toStartOf="@id/tv_s1"
+                android:layout_toLeftOf="@id/tv_s1"
+                android:textSize="20sp"
+                android:text="रोटी और चावल "/>
+
+            <TextView
+                android:id="@+id/tv_c5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_c4"
+                android:layout_toStartOf="@id/tv_s5"
+                android:layout_toLeftOf="@id/tv_s5"
+                android:textSize="20sp"
+                android:text="चाय और कॉफ़ी "/>
+
+            <ImageView
+                android:id="@+id/ivv_1"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_s1"
+                android:layout_toRightOf="@id/tv_s1"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_blue_dark" />
+
+            <ImageView
+                android:id="@+id/ivv_2"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_s2"
+                android:layout_toRightOf="@id/tv_s2"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_green_dark" />
+
+            <ImageView
+                android:id="@+id/ivv_5"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_s5"
+                android:layout_toRightOf="@id/tv_s5"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/ivv_4"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_s4"
+                android:layout_toRightOf="@id/tv_s4"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_orange_light" />
+
+            <ImageView
+                android:id="@+id/ivv_3"
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_alignBottom="@id/tv_s3"
+                android:layout_toRightOf="@id/tv_s3"
+                android:layout_marginBottom="3sp"
+                android:background="@android:color/holo_red_dark" />
 
             <TextView
                 android:id="@+id/tv_p4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_s4"
+                android:layout_toRightOf="@id/ivv_4"
+                android:layout_marginStart="15sp"
                 android:textSize="20sp"
                 android:text="00"/>
 
@@ -118,54 +217,44 @@
                 android:text="00"/>
 
             <TextView
-                android:id="@+id/tv_c4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/tv_s4"
-                android:layout_toLeftOf="@id/tv_s4"
+                android:layout_toRightOf="@id/tv_p5"
+                android:layout_alignBottom="@id/tv_p5"
                 android:textSize="20sp"
-                android:text="Category 4 "/>
+                android:text="%"/>
 
             <TextView
-                android:id="@+id/tv_c3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/tv_c4"
-                android:layout_toStartOf="@id/tv_s3"
-                android:layout_toLeftOf="@id/tv_s3"
+                android:layout_toRightOf="@id/tv_p4"
+                android:layout_alignBottom="@id/tv_p4"
                 android:textSize="20sp"
-                android:text="Category 3 "/>
+                android:text="%"/>
 
             <TextView
-                android:id="@+id/tv_c2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/tv_c3"
-                android:layout_toStartOf="@id/tv_s2"
-                android:layout_toLeftOf="@id/tv_s2"
+                android:layout_toRightOf="@id/tv_p3"
+                android:layout_alignBottom="@id/tv_p3"
                 android:textSize="20sp"
-                android:text="Category 2 "/>
+                android:text="%"/>
 
             <TextView
-                android:id="@+id/tv_c1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/tv_c2"
-                android:layout_toStartOf="@id/tv_s1"
-                android:layout_toLeftOf="@id/tv_s1"
+                android:layout_toRightOf="@id/tv_p2"
+                android:layout_alignBottom="@id/tv_p2"
                 android:textSize="20sp"
-                android:text="Category 1 "/>
+                android:text="%"/>
 
             <TextView
-                android:id="@+id/tv_c5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_c4"
-                android:layout_toStartOf="@id/tv_s5"
-                android:layout_toLeftOf="@id/tv_s5"
+                android:layout_toRightOf="@id/tv_p1"
+                android:layout_alignBottom="@id/tv_p1"
                 android:textSize="20sp"
-                android:text="Category 5 "/>
+                android:text="%"/>
 
 
             <Button

@@ -17,8 +17,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="3dp"
-        android:text=" सबसे आसान परिवर्तन करें"
-        android:textAllCaps="true"
+        android:text="आपकी Present Diet"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="?attr/colorAccent"
         android:textSize="30sp" />
@@ -69,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:text="    Category 5"
+                android:text="    चाय और  कॉफ़ी"
                 android:textSize="20sp" />
 
             <TextView
@@ -79,7 +78,7 @@
                 android:layout_above="@id/tv_c10"
                 android:layout_alignLeft="@id/tv_c10"
                 android:layout_marginBottom="3sp"
-                android:text="    Category 4"
+                android:text="    सांभर"
                 android:textSize="20sp" />
 
             <TextView
@@ -89,7 +88,7 @@
                 android:layout_above="@id/tv_c9"
                 android:layout_alignLeft="@id/tv_c9"
                 android:layout_marginBottom="3sp"
-                android:text="    Category 3"
+                android:text="    गोश्त"
                 android:textSize="20sp" />
 
             <TextView
@@ -99,7 +98,7 @@
                 android:layout_above="@id/tv_c8"
                 android:layout_marginBottom="3sp"
                 android:layout_alignLeft="@id/tv_c9"
-                android:text="    Category 2"
+                android:text="    फल, अनाज और सब्जियां"
                 android:textSize="20sp" />
 
             <TextView
@@ -107,9 +106,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/tv_c7"
-                android:layout_marginBottom="3sp"
                 android:layout_alignLeft="@id/tv_c9"
-                android:text="    Category 1"
+                android:layout_marginBottom="3sp"
+                android:text="    रोटी और चावल"
                 android:textSize="20sp" />
 
             <Button
@@ -138,7 +137,7 @@
                 android:layout_toLeftOf="@id/tv_c10"
                 android:layout_alignBottom="@id/tv_c9"
                 android:layout_marginBottom="3sp"
-                android:background="@android:color/holo_red_light" />
+                android:background="@android:color/holo_orange_light" />
 
             <ImageView
                 android:id="@+id/iv_3"
@@ -147,7 +146,7 @@
                 android:layout_toLeftOf="@id/tv_c10"
                 android:layout_alignBottom="@id/tv_c8"
                 android:layout_marginBottom="3sp"
-                android:background="@android:color/holo_blue_dark" />
+                android:background="@android:color/holo_red_dark" />
 
             <ImageView
                 android:id="@+id/iv_2"
@@ -165,7 +164,7 @@
                 android:layout_alignBottom="@id/tv_c6"
                 android:layout_toLeftOf="@id/tv_c10"
                 android:layout_marginBottom="3sp"
-                android:background="@android:color/holo_orange_light" />
+                android:background="@android:color/holo_blue_dark" />
 
 
         </RelativeLayout>

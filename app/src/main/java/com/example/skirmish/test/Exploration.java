@@ -49,4 +49,13 @@ public class Exploration extends AppCompatActivity {
 
 
     }
+
+    public void cancel(View v){
+        if(v.getId()==R.id.button4){
+            Intent intent = new Intent(getApplicationContext(), Search.class);
+            intent.putExtra("usr",usr);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+    }
 }

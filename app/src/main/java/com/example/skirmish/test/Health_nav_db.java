@@ -15,7 +15,7 @@ import android.util.Log;
 public class Health_nav_db extends SQLiteOpenHelper {
 
 
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 10;
     private static final String DB_NAME = "health_nav.db";
     private static final String TABLE_NAME = "health_nav";
     private static final String C_ID = "id";

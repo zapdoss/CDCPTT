@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="01e3431fec6b996f15e17b3080679ce0752765f8">
-        <dex dex="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4637b11bd3da16041a0897c13cd951853060ef9e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_97af6eb23ad1934f821fae297445aeda2a662003/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2152b002a9afdb4b74b89453634e4b8f8dc89a84">
+        <dex dex="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4637b11bd3da16041a0897c13cd951853060ef9e/classes.dex" />
     </item>
 
 </items>
