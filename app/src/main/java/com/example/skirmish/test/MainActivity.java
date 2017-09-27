@@ -34,23 +34,23 @@ public class MainActivity extends AppCompatActivity {
         o.setText("CDCPT");
 
 
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.megan);
-// convert bitmap to byte
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte imageInByte[] = stream.toByteArray();
-
-        Bitmap image1 = BitmapFactory.decodeResource(getResources(), R.drawable.srk);
-// convert bitmap to byte
-        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-        image1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
-        byte imageInByte1[] = stream1.toByteArray();
-
-        Bitmap image2 = BitmapFactory.decodeResource(getResources(), R.drawable.aamir);
-// convert bitmap to byte
-        ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-        image2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
-        byte imageInByte2[] = stream2.toByteArray();
+//        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.megan);
+//// convert bitmap to byte
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//        byte imageInByte[] = stream.toByteArray();
+//
+//        Bitmap image1 = BitmapFactory.decodeResource(getResources(), R.drawable.srk);
+//// convert bitmap to byte
+//        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+//        image1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+//        byte imageInByte1[] = stream1.toByteArray();
+//
+//        Bitmap image2 = BitmapFactory.decodeResource(getResources(), R.drawable.aamir);
+//// convert bitmap to byte
+//        ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+//        image2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+//        byte imageInByte2[] = stream2.toByteArray();
 
 
         helper.insertx();

@@ -75,9 +75,6 @@
             android:name=".Confirmation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".PresentDiet"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".DietExploration"
             android:screenOrientation="landscape" />
         <activity

@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="2152b002a9afdb4b74b89453634e4b8f8dc89a84">
+        sha1="77658dda56035676c988db3acfca8936b7f3be9a">
         <dex dex="/home/skirmish/AndroidStudioProjects/CDCPTT/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4637b11bd3da16041a0897c13cd951853060ef9e/classes.dex" />
     </item>
 
